@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../functions/db_connection.php';
 function getDbConnection() {
     $host = "localhost";
     $user = "root";

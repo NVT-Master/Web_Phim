@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../functions/db_connection.php';
+require_once __DIR__ . '/functions/db_connection.php';
 
 $conn = getDbConnection();
 
@@ -93,12 +93,12 @@ if (isset($_GET['search']) && $_GET['search'] !== "") {
                 <ul class="navbar-nav">
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <?php if ($_SESSION['role'] === 'ADMIN'): ?>
-                            <li class="nav-item"><a class="nav-link text-white" href="../admin/index.php">Quản lý</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="views/admin/index.php">Quản lý</a></li>
                         <?php endif; ?>
-                        <li class="nav-item"><a class="nav-link text-white" href="../auth/logout.php">Đăng xuất</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="handle/logout_process.php">Đăng xuất</a></li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="nav-link text-white" href="../auth/login.php">Đăng nhập</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="../auth/register.php">Đăng ký</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="views/auth/login.php">Đăng nhập</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="views/    auth/register.php">Đăng ký</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -109,7 +109,7 @@ if (isset($_GET['search']) && $_GET['search'] !== "") {
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active position-relative">
-                <img src="../images/banner.jpg" class="d-block w-100" style="height:550px; object-fit:cover;"
+                <img src="images/banner.jpg" class="d-block w-100" style="height:550px; object-fit:cover;"
                     alt="Banner">
                 <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
                 <div class="carousel-caption d-none d-md-block">
@@ -127,13 +127,13 @@ if (isset($_GET['search']) && $_GET['search'] !== "") {
             <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="col-md-3 mb-4">
                     <div class="card movie-card">
-                        <img src="../images/posters/<?= $row['id'] ?>.jpg" class="card-img-top"
+                        <img src="images/posters/<?= $row['id'] ?>.jpg" class="card-img-top"
                             alt="<?= htmlspecialchars($row['title']) ?>">
                         <div class="card-body bg-dark bg-opacity-75 text-white">
                             <h5 class="card-title"><?= htmlspecialchars($row['title']) ?></h5>
                             <p class="card-text">Thể loại: <?= htmlspecialchars($row['genre']) ?></p>
                             <p class="card-text">Thời lượng: <?= htmlspecialchars($row['duration']) ?> phút</p>
-                            <a href="book.php?movie_id=<?= $row['id'] ?>" class="btn btn-warning">Đặt vé</a>
+                            <a href="views/cinema/book.php?movie_id=<?= $row['id'] ?>" class="btn btn-warning">Đặt vé</a>
                         </div>
                     </div>
                 </div>

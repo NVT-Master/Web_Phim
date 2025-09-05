@@ -50,24 +50,27 @@ $conn->close();
 <body class="bg-dark text-white">
 <div class="container mt-5">
     <h2>💳 Thanh toán vé xem phim</h2>
-
     <p><strong>Phim:</strong> <?= htmlspecialchars($booking['title']) ?></p>
-    <p><strong>Suất chiếu:</strong> <?= date("d/m/Y H:i", strtotime($booking['start_time'])) ?></p>
-    <p><strong>Ghế:</strong> 
-        <?php foreach ($seats as $seat): ?>
-            <?= $seat['row_label'] . $seat['seat_number'] ?> 
-        <?php endforeach; ?>
+    <p><strong>Suất chiếu:</strong> <?= date('d/m/Y H:i', strtotime($booking['start_time'])) ?></p>
+    <p><strong>Ghế đã đặt:</strong>
+        <?php
+        $seatNames = [];
+        foreach ($seats as $seat) {
+            $seatNames[] = $seat['row_label'] . $seat['seat_number'];
+        }
+        echo implode(', ', $seatNames);
+        ?>
     </p>
     <p><strong>Tổng tiền:</strong> <?= number_format($booking['total_amount']) ?>đ</p>
-    <p><strong>Trạng thái:</strong> <?= $booking['status'] ?></p>
-
+    <p><strong>Trạng thái:</strong> <?= htmlspecialchars($booking['status']) ?></p>
+    <!-- Thêm nút thanh toán nếu trạng thái là PENDING -->
     <?php if ($booking['status'] === 'PENDING'): ?>
-        <form method="POST" action="payment_success.php">
+        <form method="POST" action="/WebPhim/handle/payment_process.php">
             <input type="hidden" name="booking_id" value="<?= $bookingId ?>">
-            <button type="submit" class="btn btn-success">✅ Thanh toán thành công</button>
+            <button type="submit" class="btn btn-success">Xác nhận thanh toán</button>
         </form>
     <?php else: ?>
-        <div class="alert alert-success">Bạn đã thanh toán thành công 🎉</div>
+        <div class="alert alert-success">Bạn đã thanh toán thành công!</div>
     <?php endif; ?>
 </div>
 </body>

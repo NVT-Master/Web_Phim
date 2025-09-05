@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../functions/db_connection.php';
+require_once __DIR__ . '/../../functions/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <!-- Background -->
-    <img src="../images/backgrounds/anhnen.jpg" class="bg-full" alt="Background">
+    <img src="../../images/backgrounds/anhnen.jpg" class="bg-full" alt="Background">
 
     <div class="center-form">
         <div class="form-box">
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="register.php">
+            <form method="POST" action="../../handle/register_process.php">
                 <div class="mb-3">
                     <label>Họ tên</label>
                     <input type="text" name="name" class="form-control" required>

@@ -61,7 +61,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'ADMIN') {
         <div class="sidebar">
             <h2>Admin Panel</h2>
             <a href="movies.php">🎬 Quản lý phim</a>
-            <a href="cinemas.php">🏢 Quản lý rạp</a>
+            <a href="theaters.php">🏢 Quản lý rạp</a>
             <a href="seats.php">🪑 Quản lý ghế</a>
             <a href="shows.php">📅 Quản lý suất chiếu</a>
             <a href="users.php">👤 Quản lý người dùng</a>
@@ -77,25 +77,25 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'ADMIN') {
                 <div class="col-md-3">
                     <div class="card text-center p-3">
                         <h5>Phim</h5>
-                        <p class="display-6">12</p>
+                        <p class="display-6"></p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card text-center p-3">
                         <h5>Rạp</h5>
-                        <p class="display-6">5</p>
+                        <p class="display-6"></p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card text-center p-3">
                         <h5>Vé bán</h5>
-                        <p class="display-6">250</p>
+                        <p class="display-6"></p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card text-center p-3">
                         <h5>Người dùng</h5>
-                        <p class="display-6">80</p>
+                        <p class="display-6"></p>
                     </div>
                 </div>
             </div>

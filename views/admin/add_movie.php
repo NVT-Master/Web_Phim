@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../functions/db_connection.php';
+require_once __DIR__ . '/../../functions/db_connection.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'ADMIN') {
     header("Location: ../auth/login.php");

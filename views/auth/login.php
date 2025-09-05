@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../functions/db_connection.php';
+require_once __DIR__ . '/../../functions/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usernameOrEmail = trim($_POST['usernameOrEmail'] ?? '');
@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['role'] = $role;
 
                 if ($role === 'ADMIN') {
-                    header("Location: ../admin/index.php");
+                    header("Location: ../views/admin/index.php");
                 } else {
-                    header("Location: ../cinema/index.php");
+                    header("Location: ../views/cinema/index.php");
                 }
                 exit();
             } else {
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <img src="../images/backgrounds/anhnen.jpg" class="bg-full" alt="Background">
+    <img src="../../images/backgrounds/anhnen.jpg" class="bg-full" alt="Background">
 
     <div class="center-form">
         <div class="form-box">
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="login.php">
+            <form method="POST" action="../../handle/login_process.php">
                 <div class="mb-3">
                     <label>Tên hoặc Email</label>
                     <input type="text" name="usernameOrEmail" class="form-control" required>
